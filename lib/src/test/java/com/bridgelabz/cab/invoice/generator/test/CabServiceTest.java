@@ -4,9 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import com.bridgelabz.cab.invoice.generator.CabInvoiceGenerator;
 import com.bridgelabz.cab.invoice.generator.Ride;
+import com.bridgelabz.cab.invoice.generator.InvoiceSummary;
 
 public class CabServiceTest {
-
+	
 	@Test
 	public void givenDistanceAndTime_ShouldReturnTotalFare() {
 		CabInvoiceGenerator generator = new CabInvoiceGenerator();
@@ -26,12 +27,13 @@ public class CabServiceTest {
 	}
 	
 	@Test
-	public void givenMultipleRides_ShouldReturnTotalFare() {
+	public void givenMultipleRides_ShouldReturnInvoiceSummary() {
 		CabInvoiceGenerator generator = new CabInvoiceGenerator();
 		Ride[] rides = { new Ride(2.0,5),
 						  new Ride (0.1,1)
 		};
-		double fare = generator.calculateFare(rides);
-		Assert.assertEquals(30,fare,0.0);
-	}
+		InvoiceSummary summary = generator.calculateFare(rides);
+		InvoiceSummary expectedSummary = new InvoiceSummary(2,30);
+		Assert.assertEquals(expectedSummary,summary);
+	} 
 }
