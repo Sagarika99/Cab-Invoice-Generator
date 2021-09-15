@@ -5,6 +5,7 @@ public class Ride {
 	public double distance;
 	public int time;
 	public int id;
+	RideType type;
 
 	public Ride(int id, double distance, int time) {
 		this.id = id;
@@ -12,7 +13,13 @@ public class Ride {
 		this.time = time;
 	}
 	
-	public Ride( double distance, int time) {
+	public Ride(double distance, int time, RideType type) {
+		this.distance = distance;
+		this.time = time;
+		this.type = type;
+	}
+	
+	public Ride(double distance, int time) {
 		this.distance = distance;
 		this.time = time;
 	}
