@@ -24,5 +24,12 @@ public class InvoiceSummary {
 			return false;
 		InvoiceSummary other = (InvoiceSummary) obj;
 		return averageFare == other.averageFare && noOfRides == other.noOfRides && totalFare == other.totalFare;
+	}
+
+	@Override
+	public String toString() {
+		return "InvoiceSummary [noOfRides=" + noOfRides + ", totalFare=" + totalFare + ", averageFare=" + averageFare
+				+ "]";
 	}	
+	
 }
